@@ -3,12 +3,12 @@ entries:
   app-movies-series:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-08-13T11:25:26.0765843-03:00"
+    created: "2026-04-07T19:49:18.083941822-03:00"
     description: A Helm chart for Kubernetes
     digest: 80b0dc0948d015aa9cb5fde07fd2047ed494abb9c5a1b291b8e6719da3de959b
     name: app-movies-series
     type: application
     urls:
-    - https://devfelip.github.io/helm-charts/felipetech/app-movies-series/app-movies-series-0.1.0.tgz
+    - https://fcavalcanti-devops.github.io/helm-charts/felipetech/app-movies-series/app-movies-series-0.1.0.tgz
     version: 0.1.0
-generated: "2025-08-13T11:25:26.0754682-03:00"
+generated: "2026-04-07T19:49:18.073647255-03:00"

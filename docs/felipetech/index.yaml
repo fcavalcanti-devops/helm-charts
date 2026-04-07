@@ -3,56 +3,56 @@ entries:
   app-movies-series:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-08-18T13:35:31.2904001-03:00"
+    created: "2026-04-07T19:51:07.606963308-03:00"
     description: A Helm chart for Kubernetes
     digest: 80b0dc0948d015aa9cb5fde07fd2047ed494abb9c5a1b291b8e6719da3de959b
     name: app-movies-series
     type: application
     urls:
-    - https://devfelip.github.io/helm-charts/felipetech/app-movies-series/app-movies-series-0.1.0.tgz
+    - https://fcavalcanti-devops.github.io/helm-charts/felipetech/app-movies-series/app-movies-series-0.1.0.tgz
     version: 0.1.0
   conversor-temperatura:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-08-18T13:35:31.2919234-03:00"
+    created: "2026-04-07T19:51:07.617483957-03:00"
     description: A Helm chart for Kubernetes
     digest: 6257bb6af985575b1c8b70a30c45258cb1c686ad8cbafec66d5ab81a3cef9b31
     name: conversor-temperatura
     type: application
     urls:
-    - https://devfelip.github.io/helm-charts/felipetech/conversor-temperatura/conversor-temperatura-0.1.0.tgz
+    - https://fcavalcanti-devops.github.io/helm-charts/felipetech/conversor-temperatura/conversor-temperatura-0.1.0.tgz
     version: 0.1.0
   db-connection-test:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-08-18T13:35:31.2919234-03:00"
+    created: "2026-04-07T19:51:07.628656893-03:00"
     description: A Helm chart for Kubernetes
     digest: 8d491f4394322d381bf81d1eccf8f28a576668588309eefb3ea40ab47bd8e678
     name: db-connection-test
     type: application
     urls:
-    - https://devfelip.github.io/helm-charts/felipetech/db-connection-test/db-connection-test-0.1.0.tgz
+    - https://fcavalcanti-devops.github.io/helm-charts/felipetech/db-connection-test/db-connection-test-0.1.0.tgz
     version: 0.1.0
   landing-page:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-08-18T13:35:31.2924144-03:00"
+    created: "2026-04-07T19:51:07.638847072-03:00"
     description: A Helm chart for Kubernetes
     digest: 3015733eba578e16b65538aedac509641ff6ff909d09877dc5aff6af0011b14b
     name: landing-page
     type: application
     urls:
-    - https://devfelip.github.io/helm-charts/felipetech/landing-page/landing-page-0.1.0.tgz
+    - https://fcavalcanti-devops.github.io/helm-charts/felipetech/landing-page/landing-page-0.1.0.tgz
     version: 0.1.0
   qrcode-generator:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2025-08-18T13:35:31.2934522-03:00"
+    created: "2026-04-07T19:51:07.648833005-03:00"
     description: A Helm chart for Kubernetes
     digest: edd9a227a21b0a08b58547df0fbb9e9e0f265ac4724a519b796e0268d4735250
     name: qrcode-generator
     type: application
     urls:
-    - https://devfelip.github.io/helm-charts/felipetech/qrcode-generator/qrcode-generator-0.1.0.tgz
+    - https://fcavalcanti-devops.github.io/helm-charts/felipetech/qrcode-generator/qrcode-generator-0.1.0.tgz
     version: 0.1.0
-generated: "2025-08-18T13:35:31.2904001-03:00"
+generated: "2026-04-07T19:51:07.597186546-03:00"
