@@ -2,7 +2,7 @@ application:
   replicas: 2
   image:
     name: felipecs8/conversor-temperatura
-    tag: isso-nao-existe-123
+    tag: homolog
   service:
     type: ClusterIP
   # Canary (Argo Rollouts): % de pods novos + pausas
