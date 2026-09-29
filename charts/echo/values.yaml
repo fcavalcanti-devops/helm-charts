@@ -8,8 +8,8 @@ httproute:
     - name: kong
       namespace: kong
   hostnames:
-    - echo.192.168.2.238.nip.io
-    - echo.192.168.2.181.nip.io
+    - echo.192.168.2.200.nip.io
+    - echo.192.168.2.249.nip.io
   stripPath: true
 rateLimit:
   enabled: true

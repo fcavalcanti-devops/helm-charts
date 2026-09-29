@@ -2,7 +2,7 @@ application:
   httproute:
     enabled: true
     hostnames:
-      - conversor-prod.192.168.2.238.nip.io
-      - conversor-prod.192.168.2.181.nip.io
+      - conversor-prod.192.168.2.200.nip.io
+      - conversor-prod.192.168.2.249.nip.io
     rateLimit:
       enabled: true
