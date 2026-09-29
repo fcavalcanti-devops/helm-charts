@@ -1,0 +1,10 @@
+apiVersion: v2
+name: kong-lab
+description: Kong Gateway 3.9 OSS com Postgres e sem Ingress Controller, para usar o Kong Manager em modo escrita
+type: application
+version: 0.1.0
+appVersion: "3.9"
+dependencies:
+  - name: kong
+    version: 3.4.1
+    repository: https://charts.konghq.com

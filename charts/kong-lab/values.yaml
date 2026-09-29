@@ -1,0 +1,100 @@
+# Stack de laboratório: Kong com banco, para o Manager funcionar em modo escrita.
+#
+# É o oposto do gateway do dia a dia, que é DB-less e dirigido pelo Git. Aqui não
+# há Ingress Controller: HTTPRoute e KongPlugin não têm efeito, e o que vale é o
+# que você criar pela UI, que vive no Postgres.
+
+postgres:
+  image: postgres:16.15
+  user: kong
+  database: kong
+  storage: 5Gi
+  # A senha não fica no Git. Crie o Secret à mão antes do primeiro sync:
+  #   kubectl -n kong-lab create secret generic kong-postgres \
+  #     --from-literal=password='SUA-SENHA'
+  existingSecret:
+    name: kong-postgres
+    key: password
+  resources:
+    requests: { cpu: 100m, memory: 256Mi }
+    limits: { memory: 512Mi }
+
+# Values repassados ao subchart kong/kong 3.4.1.
+kong:
+  # Sem KIC. É esta linha que devolve a escrita ao Manager: sem controller, não
+  # há ninguém sincronizando e sobrescrevendo o que você criar pela UI.
+  ingressController:
+    enabled: false
+
+  image:
+    repository: kong
+    tag: "3.9"
+
+  replicaCount: 1
+
+  # O subchart de Postgres do Bitnami fica desligado; o banco é o deste chart.
+  postgresql:
+    enabled: false
+
+  env:
+    database: postgres
+    # Precisa bater com o Service de templates/postgres.yaml e com o namespace
+    # de destino da Application.
+    pg_host: kong-postgres.kong-lab.svc.cluster.local
+    pg_port: 5432
+    pg_user: kong
+    pg_database: kong
+    pg_password:
+      valueFrom:
+        secretKeyRef:
+          name: kong-postgres
+          key: password
+
+    # O Manager é JavaScript no navegador: estes dois endereços precisam ser
+    # alcançáveis a partir da sua máquina. Como tudo aqui é ClusterIP, eles
+    # apontam para as portas do port-forward.
+    admin_gui_url: http://localhost:8002
+    admin_gui_api_url: http://localhost:8001
+
+  # Tudo ClusterIP: nada desta stack é alcançável pela rede local. A Admin API
+  # do Kong OSS não tem autenticação, então expô-la seria entregar o gateway a
+  # quem estiver na mesma rede. O acesso é por port-forward.
+  proxy:
+    enabled: true
+    type: ClusterIP
+    http:
+      enabled: true
+      servicePort: 8000
+      containerPort: 8000
+    tls:
+      enabled: false
+
+  admin:
+    enabled: true
+    type: ClusterIP
+    http:
+      enabled: true
+      servicePort: 8001
+      containerPort: 8001
+    tls:
+      enabled: false
+
+  manager:
+    enabled: true
+    type: ClusterIP
+    http:
+      enabled: true
+      servicePort: 8002
+      containerPort: 8002
+    tls:
+      enabled: false
+
+  # Jobs de migração do schema do Kong no Postgres.
+  migrations:
+    init: true
+    preUpgrade: true
+    postUpgrade: true
+
+  resources:
+    requests: { cpu: 100m, memory: 256Mi }
+    limits: { memory: 1Gi }
