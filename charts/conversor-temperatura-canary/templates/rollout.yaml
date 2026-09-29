@@ -32,7 +32,6 @@ spec:
             periodSeconds: 5
   strategy:
     canary:
-      # Tráfego por % de pods (sem mesh). Ajuste em values.yaml.
       steps:
         {{- range .Values.application.canary.steps }}
         {{- if .setWeight }}

@@ -1,17 +1,10 @@
 application:
-  replicas: 2
+  replicas: 1
   image:
     name: felipecs8/conversor-temperatura
     tag: 2e95491809da59418939caf2b96e3852828d59ff
   service:
     type: ClusterIP
-  # Canary (Argo Rollouts): % de pods novos + pausas
-  canary:
-    steps:
-      - setWeight: 50
-      - pause:
-          duration: 60s
-      - setWeight: 100
   clusterIssuer: "letsencrypt-prod"
   ingress:
     enabled: false

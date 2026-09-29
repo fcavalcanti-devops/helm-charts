@@ -1,0 +1,13 @@
+application:
+  replicas: 2
+  image:
+    name: felipecs8/conversor-temperatura
+    tag: latest
+  service:
+    type: ClusterIP
+  canary:
+    steps:
+      - setWeight: 50
+      - pause:
+          duration: 60s
+      - setWeight: 100

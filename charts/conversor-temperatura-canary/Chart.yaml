@@ -1,0 +1,6 @@
+apiVersion: v2
+name: conversor-temperatura-canary
+description: Chart de teste com Argo Rollouts (canary) para conversor-temperatura
+type: application
+version: 0.1.0
+appVersion: "1.0.0"
