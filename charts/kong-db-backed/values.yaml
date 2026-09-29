@@ -1,4 +1,4 @@
-# Stack de laboratório: Kong com banco, para o Manager funcionar em modo escrita.
+# Kong com banco, para o Manager funcionar em modo escrita.
 #
 # É o oposto do gateway do dia a dia, que é DB-less e dirigido pelo Git. Aqui não
 # há Ingress Controller: HTTPRoute e KongPlugin não têm efeito, e o que vale é o
@@ -9,8 +9,8 @@ postgres:
   user: kong
   database: kong
   storage: 5Gi
-  # A senha não fica no Git. Crie o Secret à mão antes do primeiro sync:
-  #   kubectl -n kong-lab create secret generic kong-postgres \
+  # A senha não fica no Git. Crie o Secret à mão antes de instalar:
+  #   kubectl -n kong-db-backed create secret generic kong-postgres \
   #     --from-literal=password='SUA-SENHA'
   existingSecret:
     name: kong-postgres
@@ -39,8 +39,8 @@ kong:
   env:
     database: postgres
     # Precisa bater com o Service de templates/postgres.yaml e com o namespace
-    # de destino da Application.
-    pg_host: kong-postgres.kong-lab.svc.cluster.local
+    # onde o chart for instalado.
+    pg_host: kong-postgres.kong-db-backed.svc.cluster.local
     pg_port: 5432
     pg_user: kong
     pg_database: kong
