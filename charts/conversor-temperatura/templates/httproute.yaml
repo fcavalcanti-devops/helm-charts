@@ -1,0 +1,24 @@
+{{- if .Values.application.httproute.enabled }}
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: {{ .Release.Name }}-conversor-temperatura
+  annotations:
+    konghq.com/strip-path: {{ .Values.application.httproute.stripPath | quote }}
+    {{- if .Values.application.httproute.rateLimit.enabled }}
+    konghq.com/plugins: rate-limit
+    {{- end }}
+spec:
+  parentRefs:
+    {{- toYaml .Values.application.httproute.parentRefs | nindent 4 }}
+  hostnames:
+    {{- toYaml .Values.application.httproute.hostnames | nindent 4 }}
+  rules:
+    - matches:
+        - path:
+            type: PathPrefix
+            value: /
+      backendRefs:
+        - name: {{ .Release.Name }}-conversor-temperatura
+          port: 80
+{{- end }}

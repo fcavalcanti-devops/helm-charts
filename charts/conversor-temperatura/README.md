@@ -3,7 +3,7 @@ App para converter a temperatura
 
 ## Installing the Chart
 ```
-helm repo add felipetech https://devfelip.github.io/helm-charts/felipetech
+helm repo add felipetech https://fcavalcanti-devops.github.io/helm-charts/felipetech
 helm repo update
 helm upgrade --install conversor-temperatura felipetech/conversor-temperatura --set application.ingress.hosts[0]=conversor-temp.domain.com
 ```
@@ -26,4 +26,4 @@ helm uninstall conversor-temperatura
 Para testes de **canary** (Argo Rollouts), use o chart `conversor-temperatura-canary`.
 
 ## GitHub Project
-https://github.com/devfelip/conversor-temperatura
+https://github.com/fcavalcanti-devops/conversor-temperatura

@@ -1,0 +1,20 @@
+replicaCount: 1
+image:
+  repository: ealen/echo-server
+  tag: "0.9.2"
+httproute:
+  enabled: true
+  parentRefs:
+    - name: kong
+      namespace: kong-system
+  hostnames:
+    - echo.192.168.2.133.nip.io
+    - echo.192.168.2.137.nip.io
+  stripPath: true
+rateLimit:
+  enabled: true
+  minute: 60
+  policy: local
+resources:
+  requests: { cpu: 10m, memory: 32Mi }
+  limits: { memory: 128Mi }

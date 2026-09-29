@@ -15,3 +15,14 @@ application:
       enabled: false
     sslRedirect:
       enabled: false
+  httproute:
+    enabled: false
+    parentRefs:
+      - name: kong
+        namespace: kong-system
+    hostnames: []
+    stripPath: true
+    rateLimit:
+      enabled: false
+      minute: 60
+      policy: local

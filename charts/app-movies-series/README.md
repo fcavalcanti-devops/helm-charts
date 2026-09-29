@@ -3,7 +3,7 @@ App for create list movies and series
 
 ## Installing the Chart
 ```
-helm repo add felipetech https://devfelip.github.io/helm-charts/felipetech
+helm repo add felipetech https://fcavalcanti-devops.github.io/helm-charts/felipetech
 helm repo update
 helm upgrade --install app-movies-series felipetech/app-movies-series --set application.ingress.hosts[0]=movies.domain.com
 ```
@@ -24,4 +24,4 @@ helm uninstall app-movies-series
 | application.ingress.hosts | array | ["movies.127.0.0.1.nip.io"] | Lista de hosts para o Ingress. |
 
 ## GitHub Project
-https://github.com/devfelip/app-movies-series
+https://github.com/fcavalcanti-devops/app-movies-series

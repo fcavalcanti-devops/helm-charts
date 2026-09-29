@@ -1,0 +1,10 @@
+{{- if and .Values.httproute.enabled .Values.rateLimit.enabled }}
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: rate-limit
+plugin: rate-limiting
+config:
+  minute: {{ .Values.rateLimit.minute }}
+  policy: {{ .Values.rateLimit.policy }}
+{{- end }}

@@ -3,7 +3,7 @@ Generate QR Codes in a simplified way
 
 ## Installing the Chart
 ```
-helm repo add felipetech https://devfelip.github.io/helm-charts/felipetech
+helm repo add felipetech https://fcavalcanti-devops.github.io/helm-charts/felipetech
 helm repo update
 helm upgrade --install qrcode-generator felipetech/qrcode-generator --set application.ingress.hosts[0]=qrcode.domain.com
 ```
@@ -45,4 +45,4 @@ helm uninstall qrcode-generator
 | application.ingress.hosts | array | ["qrcode.127.0.0.1.nip.io"] | Lista de hosts para o Ingress. |
 
 ## GitHub Project
-https://github.com/devfelip/qrcode-generator
+https://github.com/fcavalcanti-devops/qrcode-generator

@@ -3,7 +3,7 @@ App para converter a temperatura
 
 ## Installing the Chart
 ```
-helm repo add felipetech https://devfelip.github.io/helm-charts/felipetech
+helm repo add felipetech https://fcavalcanti-devops.github.io/helm-charts/felipetech
 helm repo update
 helm upgrade --install app-db-connection-test felipetech/app-db-connection-test --set application.ingress.hosts[0]=conversor-temp.domain.com
 ```
@@ -24,4 +24,4 @@ helm uninstall app-db-connection-test
 | application.ingress.hosts | array | ["db-connection.127.0.0.1.nip.io"] | Lista de hosts para o Ingress. |
 
 ## GitHub Project
-https://github.com/devfelip/app-db-connection-test
+https://github.com/fcavalcanti-devops/app-db-connection-test
