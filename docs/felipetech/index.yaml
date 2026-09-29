@@ -3,7 +3,7 @@ entries:
   app-movies-series:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-09-28T21:17:55.0244256-03:00"
+    created: "2026-09-28T21:20:53.5807465-03:00"
     description: A Helm chart for Kubernetes
     digest: 7bfb5e53ed3b959276a6c1bd9ef9c2bb8cbfe176a106125c4c9e2acae7e1173b
     name: app-movies-series
@@ -14,7 +14,7 @@ entries:
   conversor-temperatura:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-09-28T21:17:55.0249631-03:00"
+    created: "2026-09-28T21:20:53.5812826-03:00"
     description: A Helm chart for Kubernetes
     digest: d6670c9c6e0f9f677bfa3fb4166016582e95c2b05b6195f20d89592969022b04
     name: conversor-temperatura
@@ -25,7 +25,7 @@ entries:
   db-connection-test:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-09-28T21:17:55.0255079-03:00"
+    created: "2026-09-28T21:20:53.5818526-03:00"
     description: A Helm chart for Kubernetes
     digest: e278f6627651ba10dbe8da37cbb40e43bd3a20d4f7d683552f0680e478bfaa1c
     name: db-connection-test
@@ -36,7 +36,7 @@ entries:
   landing-page:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-09-28T21:17:55.0260438-03:00"
+    created: "2026-09-28T21:20:53.5824038-03:00"
     description: A Helm chart for Kubernetes
     digest: 77a5572c80361a4f20391b1679f329cdad580b2cbc8187e786b7c4cdd1dd7602
     name: landing-page
@@ -47,7 +47,7 @@ entries:
   qrcode-generator:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-09-28T21:17:55.0265722-03:00"
+    created: "2026-09-28T21:20:53.5835079-03:00"
     description: A Helm chart for Kubernetes
     digest: 057d0b182a3161250ec0a81215f2af479b3f8442c617df0eed2010b6b23394ec
     name: qrcode-generator
@@ -55,4 +55,4 @@ entries:
     urls:
     - https://fcavalcanti-devops.github.io/helm-charts/felipetech/qrcode-generator/qrcode-generator-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-28T21:17:55.0238803-03:00"
+generated: "2026-09-28T21:20:53.5801052-03:00"
