@@ -2,7 +2,7 @@ application:
   replicas: 2
   image:
     name: felipecs8/conversor-temperatura
-    tag: 2e95491809da59418939caf2b96e3852828d59ff
+    tag: 974e3cc721a4d4e0617404abbdf1ccfb717e632a
   service:
     type: ClusterIP
   # Canary (Argo Rollouts): % de pods novos + pausas
