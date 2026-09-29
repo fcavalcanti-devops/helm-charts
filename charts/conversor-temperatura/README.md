@@ -16,9 +16,10 @@ helm uninstall conversor-temperatura
 ## Global Parameters
 | Chave | Tipo | Valor Padrão | Descrição |
 |----------|----------|----------|----------|
-| application.replicas | int | 1 | Número de réplicas do aplicativo. |
+| application.replicas | int | 2 | Número de réplicas (2+ melhora o canary). |
 | application.image.name | string | felipecs8/conversor-temperatura | Nome da imagem Docker. |
 | application.image.tag | string | v1 | Tag da imagem Docker. |
+| application.canary.steps | list | 50% → pause 60s → 100% | Steps do Argo Rollouts (canary). |
 | application.service.type | string | ClusterIP | Tipo de serviço Kubernetes (ClusterIP, NodePort, LoadBalancer). |
 | application.ingress.enabled | bool | true | Habilita o recurso de Ingress. |
 | application.ingress.hosts | array | ["conversor-temp.127.0.0.1.nip.io"] | Lista de hosts para o Ingress. |

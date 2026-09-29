@@ -1,0 +1,47 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  name: {{ .Release.Name }}-conversor-temperatura
+spec:
+  replicas: {{ .Values.application.replicas }}
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}-conversor-temperatura
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}-conversor-temperatura
+    spec:
+      containers:
+        - name: app
+          image: {{ .Values.application.image.name }}:{{ .Values.application.image.tag }}
+          ports:
+            - containerPort: 8080
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 8080
+            initialDelaySeconds: 10
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /ready
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 5
+  strategy:
+    canary:
+      # Tráfego por % de pods (sem mesh). Ajuste em values.yaml.
+      steps:
+        {{- range .Values.application.canary.steps }}
+        {{- if .setWeight }}
+        - setWeight: {{ .setWeight }}
+        {{- end }}
+        {{- if .pause }}
+        - pause:
+            {{- if .pause.duration }}
+            duration: {{ .pause.duration }}
+            {{- end }}
+        {{- end }}
+        {{- end }}
