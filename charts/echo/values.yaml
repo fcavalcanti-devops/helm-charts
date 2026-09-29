@@ -6,7 +6,7 @@ httproute:
   enabled: true
   parentRefs:
     - name: kong
-      namespace: kong-system
+      namespace: kong
   hostnames:
     - echo.192.168.2.238.nip.io
     - echo.192.168.2.181.nip.io

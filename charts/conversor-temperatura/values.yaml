@@ -19,7 +19,7 @@ application:
     enabled: false
     parentRefs:
       - name: kong
-        namespace: kong-system
+        namespace: kong
     hostnames: []
     stripPath: true
     rateLimit:

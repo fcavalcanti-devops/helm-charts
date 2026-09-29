@@ -54,7 +54,7 @@ helm uninstall kong-db-backed -n kong-db-backed
 kubectl delete namespace kong-db-backed
 ```
 
-Apagar o namespace leva junto o PVC do Postgres e o Secret da senha. O gateway em `kong-system` não é afetado.
+Apagar o namespace leva junto o PVC do Postgres e o Secret da senha. O gateway em `kong` não é afetado.
 
 ## Values principais
 
