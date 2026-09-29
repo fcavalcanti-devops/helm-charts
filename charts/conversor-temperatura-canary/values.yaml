@@ -2,7 +2,7 @@ application:
   replicas: 2
   image:
     name: felipecs8/conversor-temperatura
-    tag: latest
+    tag: 34088f9d738a296b5aff92990c8c0d578fe97a89
   service:
     type: ClusterIP
   canary:
