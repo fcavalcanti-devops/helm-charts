@@ -3,9 +3,9 @@ entries:
   app-movies-series:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-09-29T16:49:53.4384024-03:00"
+    created: "2026-09-29T20:24:27.4901253-03:00"
     description: A Helm chart for Kubernetes
-    digest: 8775fcb24e318a18606b7f473bd860b1dc6323f0f83a19a6f9a4d0b0c81b8333
+    digest: 2de5fc9d355d2255fd8d9972def9e9942af3fbb9617eca66945ed02454d00577
     name: app-movies-series
     type: application
     urls:
@@ -14,20 +14,31 @@ entries:
   conversor-temperatura:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-09-29T16:49:53.4389494-03:00"
+    created: "2026-09-29T20:24:27.4906655-03:00"
     description: A Helm chart for Kubernetes
-    digest: d51f1f569f9b8e9c053c14929bf09627f68b659164ece3ea5555bc341e5713a8
+    digest: d88e4de214d24a65c41734a2ded998649a787cf95ebb09a37872c26619eab226
     name: conversor-temperatura
     type: application
     urls:
     - https://fcavalcanti-devops.github.io/helm-charts/felipetech/conversor-temperatura/conversor-temperatura-0.1.0.tgz
     version: 0.1.0
+  conversor-temperatura-canary:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-09-29T20:24:27.4906655-03:00"
+    description: Chart de teste com Argo Rollouts (canary) para conversor-temperatura
+    digest: 34f09a2514d9bc6d7d9770213218c4c71fba8c76e894ab5e7de840140970a7ef
+    name: conversor-temperatura-canary
+    type: application
+    urls:
+    - https://fcavalcanti-devops.github.io/helm-charts/felipetech/conversor-temperatura-canary/conversor-temperatura-canary-0.1.0.tgz
+    version: 0.1.0
   db-connection-test:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-09-29T16:49:53.4394845-03:00"
+    created: "2026-09-29T20:24:27.4911972-03:00"
     description: A Helm chart for Kubernetes
-    digest: 28bb8172c49e40b33b97df80c2a6ca3c677a6b5b430378977b571209061a28fb
+    digest: 56eefdf390218a249bb1e9bfbbe9444b923011f5a67bbe606f7c09e72d1a6979
     name: db-connection-test
     type: application
     urls:
@@ -36,9 +47,9 @@ entries:
   landing-page:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-09-29T16:49:53.4400386-03:00"
+    created: "2026-09-29T20:24:27.4917286-03:00"
     description: A Helm chart for Kubernetes
-    digest: 725169bcab82050eb66c145c45c64a09d69a533df68b651264640943992649c4
+    digest: 4f7919ddb5a3490612edd38d3f92bc9ab874a8c2d14085f8f64bffeb1b12aa6b
     name: landing-page
     type: application
     urls:
@@ -47,12 +58,12 @@ entries:
   qrcode-generator:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2026-09-29T16:49:53.4405717-03:00"
+    created: "2026-09-29T20:24:27.4922669-03:00"
     description: A Helm chart for Kubernetes
-    digest: a687c21893fb048243134e4342d46fc6a768b1d9353ab988ae71235b8bce64c4
+    digest: a637604b50237b129dab0dc7b7a30389cb4a5371c1eeb1ba0d0c8f8235af4618
     name: qrcode-generator
     type: application
     urls:
     - https://fcavalcanti-devops.github.io/helm-charts/felipetech/qrcode-generator/qrcode-generator-0.1.0.tgz
     version: 0.1.0
-generated: "2026-09-29T16:49:53.4378527-03:00"
+generated: "2026-09-29T20:24:27.4895965-03:00"

@@ -1,0 +1,14 @@
+apiVersion: v1
+entries:
+  conversor-temperatura-canary:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2026-09-29T20:24:27.3495126-03:00"
+    description: Chart de teste com Argo Rollouts (canary) para conversor-temperatura
+    digest: 34f09a2514d9bc6d7d9770213218c4c71fba8c76e894ab5e7de840140970a7ef
+    name: conversor-temperatura-canary
+    type: application
+    urls:
+    - https://fcavalcanti-devops.github.io/helm-charts/felipetech/conversor-temperatura-canary/conversor-temperatura-canary-0.1.0.tgz
+    version: 0.1.0
+generated: "2026-09-29T20:24:27.3484203-03:00"
