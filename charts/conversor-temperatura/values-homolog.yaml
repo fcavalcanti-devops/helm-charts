@@ -1,0 +1,30 @@
+application:
+  replicas: 1
+  image:
+    name: felipecs8/conversor-temperatura
+    tag: 7c277ee40f1553b71e1c4eb74b5d45fdc0aedbe1
+  service:
+    type: ClusterIP
+  clusterIssuer: "letsencrypt-prod"
+  ingress:
+    enabled: false
+    hosts:
+      - conversor-temp.127.0.0.1.nip.io
+    ingressClassName: null
+    tls:
+      enabled: false
+    sslRedirect:
+      enabled: false
+  httproute:
+    enabled: true
+    parentRefs:
+      - name: kong
+        namespace: kong
+    hostnames:
+      - conversor.192.168.2.200.nip.io
+      - conversor.192.168.2.249.nip.io
+    stripPath: true
+    rateLimit:
+      enabled: true
+      minute: 60
+      policy: local
