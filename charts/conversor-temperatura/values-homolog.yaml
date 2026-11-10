@@ -2,7 +2,7 @@ application:
   replicas: 1
   image:
     name: felipecs8/conversor-temperatura
-    tag: 298948919e830a1f6e8bb1948b6aea040452607c
+    tag: 97a2cbb3c4e2f7009c10436decd2c156f5dba304
   service:
     type: ClusterIP
   clusterIssuer: "letsencrypt-prod"
