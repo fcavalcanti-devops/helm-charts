@@ -21,8 +21,8 @@ application:
       - name: kong
         namespace: kong
     hostnames:
-      - conversor-prod.192.168.2.200.nip.io
-      - conversor-prod.192.168.2.249.nip.io
+      - conversor-prod.192.168.2.139.nip.io
+      - conversor-prod.192.168.2.137.nip.io
     stripPath: true
     rateLimit:
       enabled: true
