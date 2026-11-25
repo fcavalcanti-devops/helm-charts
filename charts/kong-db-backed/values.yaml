@@ -50,21 +50,25 @@ kong:
           name: kong-postgres
           key: password
 
-    # O Manager é JavaScript no navegador: estes dois endereços precisam ser
-    # alcançáveis a partir da sua máquina. Como tudo aqui é ClusterIP, eles
-    # apontam para as portas do port-forward.
+    # Endereços que o navegador resolve, não o cluster. localhost vale para o
+    # port-forward na mesma máquina em que o browser abre. Para abrir o Manager
+    # de outra máquina (fora do cluster), troque pelo IP de um node e faça o
+    # helm upgrade. As portas 8001 e 8002 precisam responder nesse IP.
+    #   admin_gui_url: http://192.168.2.217:8002
+    #   admin_gui_api_url: http://192.168.2.217:8001
     admin_gui_url: http://localhost:8002
     admin_gui_api_url: http://localhost:8001
 
-  # Tudo ClusterIP: nada desta stack é alcançável pela rede local. A Admin API
-  # do Kong OSS não tem autenticação, então expô-la seria entregar o gateway a
-  # quem estiver na mesma rede. O acesso é por port-forward.
+  # LoadBalancer na porta 80: no k3s o ServiceLB escuta em todos os nodes,
+  # então a URL fica sem porta. Admin API e Manager ficam ClusterIP: a Admin
+  # API do Kong OSS não tem autenticação, e o Manager OSS não tem login.
+  # O acesso a esses dois é por port-forward.
   proxy:
     enabled: true
-    type: ClusterIP
+    type: LoadBalancer
     http:
       enabled: true
-      servicePort: 8000
+      servicePort: 80
       containerPort: 8000
     tls:
       enabled: false

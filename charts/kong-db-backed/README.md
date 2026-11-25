@@ -28,9 +28,11 @@ O primeiro start demora: o job de migração só cria o schema depois que o Post
 
 Instalar em outro namespace exige ajustar `kong.env.pg_host`, que carrega o namespace no nome DNS.
 
+O passo a passo completo, do zero até o HTTPS de um subdomínio, está em [GUIA.md](GUIA.md).
+
 ## Acessar o Manager
 
-Todos os Services são `ClusterIP`. A Admin API do Kong OSS não tem autenticação e o Manager OSS não tem login — por isso nada aqui é publicado na rede.
+O proxy é `LoadBalancer` na porta 80. No k3s o ServiceLB publica essa porta em todos os nodes, então a URL não leva porta. A Admin API do Kong OSS não tem autenticação e o Manager OSS não tem login, então esses dois Services continuam `ClusterIP`.
 
 ```bash
 kubectl port-forward -n kong-db-backed svc/kong-db-backed-kong-admin 8001:8001
@@ -39,13 +41,22 @@ kubectl port-forward -n kong-db-backed svc/kong-db-backed-kong-manager 8002:8002
 
 Abra http://localhost:8002. São necessários os dois: a 8002 serve a interface e a 8001 é a API que ela consulta. Como a Admin API é HTTP puro, não há certificado autoassinado para aceitar antes.
 
-Para testar com `curl` as rotas que você criar pela UI:
+`kong.env.admin_gui_url` e `kong.env.admin_gui_api_url` são os endereços que o navegador usa. O padrão `localhost` só funciona no port-forward da máquina em que o browser está aberto. Para acessar de outra máquina, fora do cluster, troque pelo IP de um node antes do install (ou faça `helm upgrade` se o Kong já estiver no ar):
 
-```bash
-kubectl port-forward -n kong-db-backed svc/kong-db-backed-kong-proxy 8000:8000
+```yaml
+kong:
+  env:
+    admin_gui_url: http://192.168.2.217:8002
+    admin_gui_api_url: http://192.168.2.217:8001
 ```
 
-Se mudar as portas do port-forward, ajuste `kong.env.admin_gui_url` e `kong.env.admin_gui_api_url` nos values: são endereços que o **navegador** resolve, não o cluster.
+Aí a página é `http://192.168.2.217:8002`. As portas 8001 e 8002 têm que responder nesse IP: no padrão elas são ClusterIP, então publique o Admin e o Manager (NodePort ou LoadBalancer) ou o navegador não alcança a API e a tela fica vazia.
+
+Para testar com `curl` as rotas que você criar pela UI, use o IP de um node na porta 80. O header `Host` tem que ser o host gravado na route:
+
+```bash
+curl -H "Host: conversor.192.168.2.217.nip.io" http://192.168.2.217/health
+```
 
 ## Remover
 
